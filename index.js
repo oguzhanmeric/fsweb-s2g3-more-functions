@@ -16,9 +16,16 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
+function dosyaAdiniBul(file) {
+  let parcalar = [];
+  parcalar = file.split("/");
+ 
+  let sonuc = parcalar[parcalar.length -1 ];
+  return sonuc
   // kodlar buraya
+
 }
+  console.log(dosyaAdiniBul(""));
 
 /*
   GÖREV 2
@@ -38,10 +45,11 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
-}
-
+function ortalamaBul(sayiArray){
+  let output =sayiArray.length !==0 ? (sayiArray.reduce((sayi1,sayi2) => (sayi1 + sayi2),0)) / (sayiArray.length) : null ;
+  return output;
+} 
+console.log(ortalamaBul([1,2,3,4,5,6]));
 /*
   GÖREV 3
   - Input:  Bir sayı arrayini ve ortalama bulmaya yarayacak bir fonksiyonu parametre olarak alacak bir fonksiyon oluştur.
@@ -61,10 +69,24 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek input:  [109, 216, 288, 143, 71, 185, -278, 194, 5]
   örnek output: [109, 216, 288, 143, 185, 194]
 */
-
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+// -------------- BU ÇÖZÜMDE NULL VERMİYOR ------------- SORULACAK
+/*function ortalamadanBuyukleriBul(sayiArray, OrtalamaFunc) {  
+ let ortalamaBuyukler = sayiArray.lenght !== 0 ? sayiArray.filter(arr => arr >= OrtalamaFunc(sayiArray)) : null ;
+return ortalamaBuyukler;
 }
+console.log(ortalamadanBuyukleriBul([], ortalamaBul));*/
+
+function ortalamadanBuyukleriBul(sayiArray, OrtalamaFunc) {
+ let ortalamaBuyukler = []
+  if (sayiArray.length == 0) {
+  ortalamaBuyukler = null
+  } else {
+    ortalamaBuyukler = sayiArray.filter (arr => arr >= OrtalamaFunc(sayiArray) );
+  }
+return ortalamaBuyukler;
+
+}
+
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
